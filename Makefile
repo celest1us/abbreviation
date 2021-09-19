@@ -1,17 +1,23 @@
 CXX=g++
-SRCS=main.cpp
+CXXFLAGS=-Wall -Werror -fpic
+SRCS=abbrev.cpp
 OBJS=$(subst .cpp,.o,$(SRCS))
 RM=rm -f
+TARGET_LIB=libabbrev.so
 
-all: main.exe
+.PHONY: all
+all: $(TARGET_LIB)
 
-main.exe: $(OBJS)
-	$(CXX) -o main.exe $(OBJS)
+$(TARGET_LIB): $(OBJS)
+	$(CXX) -shared -o $@ $^
 
-main.o: main.cpp
+test.exe: $(TARGET_LIB) test.o
+	$(CXX) -L. -o $@ $^ -labbrev
 
+.PHONY: test
+test: test.exe
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH):. ./$^
+
+.PHONY: clean
 clean:
-	$(RM) $(OBJS)
-
-distclean: clean
-	$(RM) tool
+	$(RM) $(OBJS) $(TARGET_LIB) test
