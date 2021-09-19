@@ -5,7 +5,6 @@
 *.slo
 *.lo
 *.o
-<<<<<<< HEAD
 *.obj
 
 # Precompiled Headers
@@ -31,8 +30,7 @@
 *.exe
 *.out
 *.app
-=======
 *.exe
-*.so
+
+# Visual Studio Code
 .vscode
->>>>>>> configured makefile to run with shared object
