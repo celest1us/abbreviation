@@ -4,14 +4,14 @@
 
 using namespace std;
 
-bool isStringLower(string s) {
+bool isStringLower(const string s) {
     for (int i = 0; i < (int)s.length(); ++i)
         if (!islower(s[i])) return false;
     
     return true;
 }
 
-int abbreviationAux(string &a, string &b, int ia, int ib, vector<vector<int>> &dp) {
+int abbreviationAux(const string &a, const string &b, int ia, int ib, vector<vector<int>> &dp) {
     if (ia == (int)a.length()) {
         if (ib == (int)b.length()) return 1;
         else return 0;
