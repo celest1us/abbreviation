@@ -19,7 +19,7 @@ bool isStringLower(string s) {
     return true;
 }
 
-int abbreviationAux(string a, string b, int ia, int ib, vector<vector<int>> dp) {
+int abbreviationAux(string &a, string &b, int ia, int ib, vector<vector<int>> &dp) {
     if (ia == a.length()) {
         if (ib == b.length()) return 1;
         else return 0;
