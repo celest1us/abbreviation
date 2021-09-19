@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool isStringLower(string &s) {
+bool isStringLower(string s) {
     for (int i = 0; i < (int)s.length(); ++i)
         if (!islower(s[i])) return false;
     
