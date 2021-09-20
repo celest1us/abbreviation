@@ -28,9 +28,7 @@ int abbreviationAux(const string &a, const string &b, int ia, int ib, vector<vec
 }
 
 string abbreviation(string a, string b) {
-    if (b.length() > a.length()) {
-        return "NO";
-    }
+    if (b.length() > a.length()) return "NO";
     
     vector<vector<int>> dp(a.length(), vector<int>(b.length(), -1));
     
